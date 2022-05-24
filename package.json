@@ -10,13 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/eslint-parser": "^7.16.5",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^11.0.0",
-    "eslint": "^8.7.0",
-    "eslint-config-airbnb": "^19.0.4",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "morgan": "^1.10.0",
@@ -28,7 +25,18 @@
     "session": "^0.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/eslint-parser": "^7.16.5",
     "@babel/preset-react": "^7.16.7",
+    "eslint": "8.15.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.3",
     "nodemon": "^2.0.15"
+  },
+  "packageManager": "yarn@3.2.1",
+  "dependenciesMeta": {
+    "eslint@8.15.0": {
+      "unplugged": true
+    }
   }
 }
