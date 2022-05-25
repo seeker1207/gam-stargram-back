@@ -19,5 +19,5 @@ db.User = User(sequelize, Sequelize);
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-export default db;
+export {db, User};
 

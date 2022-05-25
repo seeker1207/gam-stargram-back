@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         email: {
-            type: DataTypes.String(30),
+            type: DataTypes.STRING(30),
             allowNull: true,
             unique: true,
         },
