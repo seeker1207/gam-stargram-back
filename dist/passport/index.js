@@ -17,10 +17,14 @@ const local_1 = __importDefault(require("./local"));
 const models_1 = require("../models");
 exports.default = () => {
     passport_1.default.serializeUser((user, done) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         done(null, user.id);
     });
     passport_1.default.deserializeUser((id, done) => __awaiter(void 0, void 0, void 0, function* () {
         try {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             const user = yield models_1.User.findOne({ where: { id } });
             done(null, user);
         }

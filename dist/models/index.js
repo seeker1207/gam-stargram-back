@@ -3,21 +3,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = exports.db = void 0;
-const sequelize_1 = require("sequelize");
 const config_1 = __importDefault(require("../config/config"));
 const user_1 = __importDefault(require("../models/user"));
-exports.User = user_1.default;
+const typeorm_1 = require("typeorm");
 const env = process.env.NODE_ENV || 'development';
-const db = { User: sequelize_1.Sequelize };
-exports.db = db;
 const config = config_1.default[env];
-const sequelize = new sequelize_1.Sequelize(config.database, config.username, config.password, config);
-db.User = (0, user_1.default)(sequelize, sequelize_1.Sequelize);
-// Object.keys(db).forEach(modelName => {
-//     if (db[modelName].association) {
-//         db[modelName].associate(db);
-//     }
-// });
-db.sequelize = sequelize;
-db.Sequelize = sequelize_1.Sequelize;
+const AppDataSource = new typeorm_1.DataSource({
+    type: "mysql",
+    host: config.host,
+    port: 3306,
+    username: config.username,
+    password: config.password,
+    database: config.database,
+    entities: [user_1.default],
+    synchronize: true,
+    logging: true,
+});
+exports.default = AppDataSource;

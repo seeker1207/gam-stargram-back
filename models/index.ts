@@ -1,23 +1,20 @@
-import { Sequelize } from 'sequelize';
+import { DataSource } from 'typeorm';
 import configInfo from '../config/config';
-import User from '../models/user';
+import User from './User';
 
 const env = process.env.NODE_ENV || 'development';
-const db: any = { User: Sequelize };
 const config = configInfo[env];
 
-const sequelize = new Sequelize(config.database, config.username, config.password, config);
+const AppDataSource = new DataSource({
+  type: 'mysql',
+  host: config.host,
+  port: 3306,
+  username: config.username,
+  password: config.password,
+  database: config.database,
+  entities: [User],
+  synchronize: true,
+  logging: false,
+});
 
-db.User = User(sequelize, Sequelize);
-
-// Object.keys(db).forEach(modelName => {
-//     if (db[modelName].association) {
-//         db[modelName].associate(db);
-//     }
-// });
-
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-export {db, User};
-
+export default AppDataSource;

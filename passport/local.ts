@@ -9,8 +9,6 @@ export default () => {
     passwordField: 'password',
   }, (async (email, password, done) => {
     try {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       const user = await User.findOne({
         where: { email },
       });
