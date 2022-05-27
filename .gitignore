@@ -39,5 +39,7 @@ yarn-error.log*
 !.yarn/sdks
 !.yarn/versions
 
-/dist/*
-/dist/app.js
+dist/*
+dist/app.js
+
+.env
