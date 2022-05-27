@@ -20,5 +20,18 @@ async function signUp(user: User) {
   await userRepository.save(realInputUser);
 }
 
-const userService = { signUp };
+async function getUserById(id: number): Promise<User> {
+  const userInfoWithoutPassword = await userRepository.findOne({
+    where: { id },
+    select: {
+      email: true,
+      nickname: true,
+    },
+  });
+  if (!userInfoWithoutPassword) {
+    throw new Error('계정이 존재하지 않습니다.');
+  }
+  return userInfoWithoutPassword;
+}
+const userService = { signUp, getUserById };
 export default userService;

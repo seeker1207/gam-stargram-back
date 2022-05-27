@@ -1,7 +1,10 @@
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import bcrypt from 'bcrypt';
-import { User } from '../models';
+import User from '../models/User';
+import AppDataSource from '../models';
+
+const userRepository = AppDataSource.getRepository(User);
 
 export default () => {
   passport.use(new LocalStrategy({
@@ -9,8 +12,8 @@ export default () => {
     passwordField: 'password',
   }, (async (email, password, done) => {
     try {
-      const user = await User.findOne({
-        where: { email },
+      const user = await userRepository.findOneBy({
+        email,
       });
       if (!user) {
         return done(null, false, { message: '존재하지 않는 사용자입니다!' });

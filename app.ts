@@ -5,7 +5,8 @@ import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import AppDataSource from './models';
 import userController from './controller/UserController';
-// import passportConfig from './passport';
+import morgan from 'morgan';
+import passportConfig from './passport';
 
 dotenv.config();
 
@@ -18,7 +19,8 @@ AppDataSource.initialize()
   })
   .catch((error) => console.log(error));
 
-// passportConfig();
+passportConfig();
+app.use(morgan('dev'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

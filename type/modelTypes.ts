@@ -1,16 +1,13 @@
-import {Dialect} from "sequelize";
-
 interface Config {
     username: string;
     password: string | undefined;
     database: string;
     host: string;
-    dialect: Dialect;
+    dialect: string;
 }
 
 interface DotenvConfig {
     [key: string]: Config
 }
-
 
 export { DotenvConfig, Config };

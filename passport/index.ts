@@ -1,6 +1,9 @@
 import passport from 'passport';
 import local from './local';
-import { User } from '../models';
+import User from '../models/User';
+import AppDataSource from '../models';
+
+const userRepository = AppDataSource.getRepository(User);
 
 export default () => {
   passport.serializeUser((user, done) => {
@@ -9,11 +12,9 @@ export default () => {
     done(null, user.id);
   });
 
-  passport.deserializeUser(async (id, done) => {
+  passport.deserializeUser(async (id: number, done) => {
     try {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const user = await User.findOne({ where: { id } });
+      const user = await userRepository.findOneBy({ id });
       done(null, user);
     } catch (e) {
       console.error(e);

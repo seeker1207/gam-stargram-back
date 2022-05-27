@@ -41,6 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/cookie-parser", "npm:1.4.3"],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/express-session", "npm:1.17.4"],\
+            ["@types/morgan", "npm:1.9.3"],\
             ["@types/node", "npm:17.0.35"],\
             ["@types/passport", "npm:1.0.7"],\
             ["@types/passport-local", "npm:1.0.34"],\
@@ -1068,6 +1069,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-mime-npm-1.3.2-ea71878ab3-0493368244.zip/node_modules/@types/mime/",\
           "packageDependencies": [\
             ["@types/mime", "npm:1.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/morgan", [\
+        ["npm:1.9.3", {\
+          "packageLocation": "./.yarn/cache/@types-morgan-npm-1.9.3-118eec1c2b-0b9bc8641c.zip/node_modules/@types/morgan/",\
+          "packageDependencies": [\
+            ["@types/morgan", "npm:1.9.3"],\
+            ["@types/node", "npm:17.0.35"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2689,7 +2700,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],\
       ["eslint", [\
         ["npm:8.16.0", {\
-          "packageLocation": "./.yarn/cache/eslint-npm-8.16.0-4dc6ea62e6-654a0200b4.zip/node_modules/eslint/",\
+          "packageLocation": "./.yarn/unplugged/eslint-npm-8.16.0-4dc6ea62e6/node_modules/eslint/",\
           "packageDependencies": [\
             ["eslint", "npm:8.16.0"],\
             ["@eslint/eslintrc", "npm:1.3.0"],\
@@ -5418,6 +5429,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/cookie-parser", "npm:1.4.3"],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/express-session", "npm:1.17.4"],\
+            ["@types/morgan", "npm:1.9.3"],\
             ["@types/node", "npm:17.0.35"],\
             ["@types/passport", "npm:1.0.7"],\
             ["@types/passport-local", "npm:1.0.34"],\

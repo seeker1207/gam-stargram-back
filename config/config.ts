@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
-import {DotenvConfig} from "../type/modelTypes";
+import { DotenvConfig } from '../type/modelTypes';
+
 dotenv.config();
 
 const configInfo: DotenvConfig = {
