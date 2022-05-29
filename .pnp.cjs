@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-typescript", "virtual:2494fd73311a6caf9e7431ee87560270f13e213022031bf7c74982dded140ff3b1c94c6efe8ab7f1c1974566a4a97fc51ce022489da89ec542109480295b2896#npm:7.17.12"],\
             ["@types/bcrypt", "npm:5.0.0"],\
             ["@types/cookie-parser", "npm:1.4.3"],\
+            ["@types/cors", "npm:2.8.12"],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/express-session", "npm:1.17.4"],\
             ["@types/morgan", "npm:1.9.3"],\
@@ -997,6 +998,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/cookie-parser", "npm:1.4.3"],\
             ["@types/express", "npm:4.17.13"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/cors", [\
+        ["npm:2.8.12", {\
+          "packageLocation": "./.yarn/cache/@types-cors-npm-2.8.12-ff52e8e514-8c45f112c7.zip/node_modules/@types/cors/",\
+          "packageDependencies": [\
+            ["@types/cors", "npm:2.8.12"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5427,6 +5437,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-typescript", "virtual:2494fd73311a6caf9e7431ee87560270f13e213022031bf7c74982dded140ff3b1c94c6efe8ab7f1c1974566a4a97fc51ce022489da89ec542109480295b2896#npm:7.17.12"],\
             ["@types/bcrypt", "npm:5.0.0"],\
             ["@types/cookie-parser", "npm:1.4.3"],\
+            ["@types/cors", "npm:2.8.12"],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/express-session", "npm:1.17.4"],\
             ["@types/morgan", "npm:1.9.3"],\

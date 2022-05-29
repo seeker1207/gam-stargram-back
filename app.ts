@@ -3,9 +3,10 @@ import session from 'express-session';
 import dotenv from 'dotenv';
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
+import morgan from 'morgan';
+import cors from 'cors';
 import AppDataSource from './models';
 import userController from './controller/UserController';
-import morgan from 'morgan';
 import passportConfig from './passport';
 
 dotenv.config();
@@ -20,6 +21,11 @@ AppDataSource.initialize()
   .catch((error) => console.log(error));
 
 passportConfig();
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true,
+}));
+
 app.use(morgan('dev'));
 
 app.use(express.json());
