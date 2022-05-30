@@ -3,6 +3,15 @@ import passport from 'passport';
 import userService from '../service/UserService';
 
 const router = express.Router();
+export {};
+
+declare global {
+  namespace Express {
+    interface User {
+      id: number;
+    }
+  }
+}
 
 router.get('/login', async (req, res, next) => {
   console.log(req.user);
