@@ -4,6 +4,20 @@ import userService from '../service/UserService';
 
 const router = express.Router();
 
+router.get('/login', async (req, res, next) => {
+  console.log(req.user);
+  if (req.user) {
+    try {
+      const userInfoWithoutPassword = await userService.getUserById(req.user.id);
+      res.status(201).json(userInfoWithoutPassword);
+    } catch (e) {
+      next(e);
+    }
+  } else {
+    next(new Error('로그인된 유저가 없습니다.'));
+  }
+});
+
 router.post('/', async (req, res, next) => {
   const newUser = req.body;
   try {
@@ -23,7 +37,7 @@ router.post('/login', async (req, res, next) => {
       return next(err);
     }
     if (info) {
-      return res.status(401).send(info.reason);
+      return res.status(401).send(info.message);
     }
     return req.login(user, async (loginErr) => {
       if (loginErr) {

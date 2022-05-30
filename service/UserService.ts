@@ -33,5 +33,20 @@ async function getUserById(id: number): Promise<User> {
   }
   return userInfoWithoutPassword;
 }
-const userService = { signUp, getUserById };
+
+async function getUserByEmail(email: string): Promise<User> {
+  const userInfoWithoutPassword = await userRepository.findOne({
+    where: { email },
+    select: {
+      email: true,
+      nickname: true,
+    },
+  });
+  if (!userInfoWithoutPassword) {
+    throw new Error('계정이 존재하지 않습니다.');
+  }
+  return userInfoWithoutPassword;
+}
+
+const userService = { signUp, getUserById, getUserByEmail };
 export default userService;

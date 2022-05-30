@@ -47,6 +47,17 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use('/user', userController);
 
+app.use((err: Error, req: Request, res: Response, next: (arg0: Error) => void) => {
+  console.log(req.xhr);
+  if (req.xhr) {
+    console.error(err.stack);
+    res.status(403).send({ error: err.message });
+  } else {
+    console.error(err.stack);
+    next(err);
+  }
+});
+
 app.listen(port, () => {
   console.log(`서버 시작 완료! http://localhost:${port}`);
 });
