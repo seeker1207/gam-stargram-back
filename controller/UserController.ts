@@ -3,7 +3,6 @@ import passport from 'passport';
 import userService from '../service/UserService';
 
 const router = express.Router();
-export {};
 
 declare global {
   namespace Express {
