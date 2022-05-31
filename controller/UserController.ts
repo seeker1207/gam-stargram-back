@@ -58,4 +58,10 @@ router.post('/login', async (req, res, next) => {
   })(req, res, next);
 });
 
+router.post('/logout', (req, res) => {
+  req.logout();
+  req.session.destroy((err) => console.error(err));
+  res.send('ok');
+});
+
 export default router;
