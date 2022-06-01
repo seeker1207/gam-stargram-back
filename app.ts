@@ -49,6 +49,9 @@ app.use('/user', userController);
 
 app.use((err: Error, req: Request, res: Response, next: (arg0: Error) => void) => {
   console.log(req.xhr);
+  if (!req.user && req.body.email && req.body.password) {
+    res.status(401).send({ error: err.message });
+  }
   if (req.xhr) {
     console.error(err.stack);
     res.status(403).send({ error: err.message });
