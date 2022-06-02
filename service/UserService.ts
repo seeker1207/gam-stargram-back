@@ -15,6 +15,7 @@ async function signUp(user: User) {
     email: user.email,
     password: hashedPassword,
     nickname: user.nickname,
+    birthday: new Date(user.birthday),
   });
 
   await userRepository.save(realInputUser);
