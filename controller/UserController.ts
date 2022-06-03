@@ -1,6 +1,6 @@
 import express from 'express';
 import passport from 'passport';
-import userService from '../service/UserService';
+import { getUserById, signUp } from '../service/UserService';
 
 const router = express.Router();
 
@@ -16,7 +16,7 @@ router.get('/login', async (req, res, next) => {
   console.log(req.user);
   if (req.user) {
     try {
-      const userInfoWithoutPassword = await userService.getUserById(req.user.id);
+      const userInfoWithoutPassword = await getUserById(req.user.id);
       res.status(201).json(userInfoWithoutPassword);
     } catch (e) {
       next(e);
@@ -29,7 +29,7 @@ router.get('/login', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   const newUser = req.body;
   try {
-    await userService.signUp(newUser);
+    await signUp(newUser);
     res.status(201).send('ok');
   } catch (error: any) {
     // console.error(error);
@@ -52,7 +52,7 @@ router.post('/login', async (req, res, next) => {
         console.error(loginErr);
         return next(loginErr);
       }
-      const fullUserWithoutPassword = await userService.getUserById(user.id);
+      const fullUserWithoutPassword = await getUserById(user.id);
       return res.status(200).json(fullUserWithoutPassword);
     });
   })(req, res, next);

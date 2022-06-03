@@ -49,5 +49,4 @@ async function getUserByEmail(email: string): Promise<User> {
   return userInfoWithoutPassword;
 }
 
-const userService = { signUp, getUserById, getUserByEmail };
-export default userService;
+export { signUp, getUserById, getUserByEmail };

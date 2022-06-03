@@ -5,6 +5,7 @@ import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import cors from 'cors';
+import path from 'path';
 import AppDataSource from './models';
 import userController from './controller/UserController';
 import passportConfig from './passport';
@@ -41,9 +42,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('hello express!');
-});
+app.use('/', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/user', userController);
 

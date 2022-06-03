@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import Photo from './Photo';
 
 interface InputUser {
   email: string
@@ -33,4 +34,7 @@ export default class User {
 
   @Column()
     birthday: Date;
+
+  @OneToMany(() => Photo, (photo) => photo.user)
+    photos: Photo[];
 }
