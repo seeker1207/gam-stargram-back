@@ -1,5 +1,5 @@
 import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
-import Photo from './Photo';
+import Post from './Post';
 
 @Entity()
 export default class Hashtag {
@@ -9,7 +9,6 @@ export default class Hashtag {
   @Column()
     name: string;
 
-  @ManyToMany(() => Photo, (photo) => photo.hashtags)
-  @JoinTable()
-    photos: Photo[];
+  @ManyToMany(() => Post, (post) => post.hashtags)
+    posts: Post[];
 }

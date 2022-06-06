@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import Photo from './Photo';
+import Post from './Post';
 
 interface InputUser {
   email: string
@@ -35,6 +36,6 @@ export default class User {
   @Column()
     birthday: Date;
 
-  @OneToMany(() => Photo, (photo) => photo.user)
-    photos: Photo[];
+  @OneToMany(() => Post, (post) => post.user)
+    posts: Post[];
 }

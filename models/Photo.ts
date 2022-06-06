@@ -1,6 +1,7 @@
-import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import User from './User';
 import Hashtag from './Hashtag';
+import Post from './Post';
 
 @Entity()
 export default class Photo {
@@ -12,20 +13,11 @@ export default class Photo {
     id: number;
 
   @Column()
-    title: string;
-
-  @Column()
     filePath: string;
 
-  @ManyToOne(() => User, (user) => user.photos)
-    user: User;
+  @ManyToOne(() => Post, (post) => post.photos)
+    post: Post;
 
   @Column()
     regDtm: Date;
-
-  @Column()
-    modDtm: Date;
-
-  @ManyToMany(() => Hashtag, (hashtag) => hashtag.photos)
-    hashtags: Hashtag[];
 }

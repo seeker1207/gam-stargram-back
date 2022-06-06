@@ -8,6 +8,7 @@ import cors from 'cors';
 import path from 'path';
 import AppDataSource from './models';
 import userController from './controller/UserController';
+import postController from './controller/PostController';
 import passportConfig from './passport';
 
 dotenv.config();
@@ -45,6 +46,7 @@ app.use(passport.session());
 app.use('/', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/user', userController);
+app.use('/post', postController);
 
 app.use((err: Error, req: Request, res: Response, next: (arg0: Error) => void) => {
   console.log(req.xhr);
