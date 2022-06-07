@@ -19,14 +19,16 @@ interface postDto {
 }
 
 async function savePost(post: postDto) {
-  const hashtags = post.description.match(/#[^\s#]+/g);
+  const hashtags = post.description.match(/#([^\s#]+)/g);
   const now = new Date();
-
-  const savedHashtags = await Promise.all(hashtags.map(async (name) => {
-    const hashtag = await hashtagRepository.findOneBy({ name });
-    return hashtag ?? hashtagRepository.create({ name });
+  console.log(hashtags);
+  const savedHashtags = await Promise.all(hashtags.map(async (name, idx) => {
+    const hashtag = await hashtagRepository.findOneBy({ name: name.slice(1) });
+    console.log(idx);
+    // console.log(hashtags);
+    return hashtag ?? hashtagRepository.create({ name: name.slice(1) });
   }));
-
+  console.log(hashtags);
   const savedPhoto = post.filePath.map((filePath) => photoRepository.create({ filePath, regDtm: now }));
   await photoRepository.save(savedPhoto);
 

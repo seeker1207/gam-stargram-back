@@ -13,4 +13,11 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+router.get('/', async (req, res, next) => {
+  try {
+
+  } catch (e) {
+    next(e);
+  }
+});
 export default router;
