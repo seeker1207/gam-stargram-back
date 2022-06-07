@@ -17,7 +17,7 @@ const AppDataSource = new DataSource({
   database: config.database,
   entities: [User, Photo, Hashtag, Post],
   synchronize: true,
-  logging: true,
+  logging: false,
 });
 
 export default AppDataSource;

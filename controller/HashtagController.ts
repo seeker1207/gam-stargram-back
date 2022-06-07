@@ -11,3 +11,5 @@ router.get('/:hashtag', async (req, res, next) => {
     next(e);
   }
 });
+
+export default router;

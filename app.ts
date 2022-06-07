@@ -9,6 +9,7 @@ import path from 'path';
 import AppDataSource from './models';
 import userController from './controller/UserController';
 import postController from './controller/PostController';
+import hashtagController from './controller/HashtagController';
 import passportConfig from './passport';
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.use(cors({
 
 app.use(morgan('dev'));
 
+app.use('/', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
@@ -43,10 +45,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', express.static(path.join(__dirname, 'uploads')));
+console.log(path.join(__dirname, 'uploads'));
 
 app.use('/user', userController);
 app.use('/post', postController);
+app.use('/hashtag', hashtagController);
 
 app.use((err: Error, req: Request, res: Response, next: (arg0: Error) => void) => {
   console.log(req.xhr);
