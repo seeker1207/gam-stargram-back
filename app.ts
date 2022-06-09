@@ -11,6 +11,7 @@ import userController from './controller/UserController';
 import postController from './controller/PostController';
 import hashtagController from './controller/HashtagController';
 import passportConfig from './passport';
+import photoContoroller from './controller/PhotoContoroller';
 
 dotenv.config();
 
@@ -50,6 +51,7 @@ console.log(path.join(__dirname, 'uploads'));
 app.use('/user', userController);
 app.use('/post', postController);
 app.use('/hashtag', hashtagController);
+app.use('/photo', photoContoroller);
 
 app.use((err: Error, req: Request, res: Response, next: (arg0: Error) => void) => {
   console.log(req.xhr);

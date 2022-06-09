@@ -2,7 +2,6 @@ import AppDataSource from '../models';
 import Photo from '../models/Photo';
 import Hashtag from '../models/Hashtag';
 
-const photoRepository = AppDataSource.getRepository(Photo);
 const hashtagRepository = AppDataSource.getRepository(Hashtag);
 
 async function getPhotosByHashtag(hashtagName): Promise<Photo[]> {

@@ -43,6 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express", "npm:4.17.13"],\
             ["@types/express-session", "npm:1.17.4"],\
             ["@types/morgan", "npm:1.9.3"],\
+            ["@types/multer", "npm:1.4.7"],\
             ["@types/node", "npm:17.0.35"],\
             ["@types/passport", "npm:1.0.7"],\
             ["@types/passport-local", "npm:1.0.34"],\
@@ -1092,6 +1093,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/morgan", "npm:1.9.3"],\
             ["@types/node", "npm:17.0.35"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/multer", [\
+        ["npm:1.4.7", {\
+          "packageLocation": "./.yarn/cache/@types-multer-npm-1.4.7-df3819be8e-680cb0710a.zip/node_modules/@types/multer/",\
+          "packageDependencies": [\
+            ["@types/multer", "npm:1.4.7"],\
+            ["@types/express", "npm:4.17.13"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5545,6 +5556,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express", "npm:4.17.13"],\
             ["@types/express-session", "npm:1.17.4"],\
             ["@types/morgan", "npm:1.9.3"],\
+            ["@types/multer", "npm:1.4.7"],\
             ["@types/node", "npm:17.0.35"],\
             ["@types/passport", "npm:1.0.7"],\
             ["@types/passport-local", "npm:1.0.34"],\
