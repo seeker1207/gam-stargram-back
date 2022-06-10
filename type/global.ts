@@ -5,5 +5,8 @@ declare global {
     interface User {
       id: number;
     }
+    interface Request {
+      encodedFileName: string;
+    }
   }
 }

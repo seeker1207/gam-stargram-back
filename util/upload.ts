@@ -2,6 +2,16 @@ import fs from 'fs';
 import path from 'path';
 import multer from 'multer';
 
+declare global {
+  namespace Express {
+    interface User {
+      id: number;
+    }
+    interface Request {
+      encodedFileName: string;
+    }
+  }
+}
 try {
   fs.accessSync('uploads');
 } catch (error) {
@@ -15,8 +25,8 @@ const upload = multer({
       done(null, 'uploads');
     },
     filename(req, file, done) {
-      const ext = path.extname(file.originalname); // 확장자 추출.
-      const basename = path.basename(file.originalname, ext); // 제로초.
+      const ext = path.extname(decodeURI(file.originalname)); // 확장자 추출.
+      const basename = path.basename(decodeURI(file.originalname), ext); // 제로초.
       done(null, `${basename}_${new Date().getTime()}${ext}`); // 제로초142323523.png
     },
   }),
